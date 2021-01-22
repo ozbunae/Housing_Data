@@ -37,17 +37,17 @@ Exploratory Data Analysis shows us that
 We found that yes, it is definitely worth it to invest in a non renovated home if you are doing the renovations yourself.  
 Investigating popular neighborhoods surrounding the already renovated areas to take advantage of prime real estate.  The mean cost of a grade 6 home from the renovated group of homes is on average $100,000 more than the average cost of a grade 6 non – renovated home.  This means that it seems to be significantly cheaper to purchase a property that has not been renovated and purchase materials to customize it.
 
-![nonrenovated](/images/newplot.png)
+![newplot](/images/newplot.png)
 
-![renovated](/images/newplot(1).png)
+![newplot(1)](/images/newplot(1).png)
 
 ### 2.2 Question 2:
 Heat maps were createed based on zip code with both the Renovated and Non Renovated data frames.
 We were able to see trending areas that had not been renovated yet but were surrounding renovated areas.  
 
-![heatmapnoreno](/images/Not Renovated.png)
+![Not Renovated](/images/Not Renovated.png)
 
-![heatmapreno](/images/Renovated.png)
+![Renovated](/images/Renovated.png)
 
 ### 2.3 Question 3:
 Airbnb data was cleaned and filtered using the interquartile method on the monthly price column.  This created a reasonable range of homes of which to work in.  Outliers were removed from other categories and categorical columns were explored.  After doing this, it was determined that it would be suitable to purchase a detached house that was 2-6 bedrooms and 1 -3 bathrooms.  All of the homes in this data set also had a score of 92/100 or higher in the review ratings column.  
