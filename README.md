@@ -37,7 +37,11 @@ Exploratory Data Analysis shows us that
 We found that yes, it is definitely worth it to invest in a non renovated home if you are doing the renovations yourself.  
 Investigating popular neighborhoods surrounding the already renovated areas to take advantage of prime real estate.  The mean cost of a grade 6 home from the renovated group of homes is on average $100,000 more than the average cost of a grade 6 non – renovated home.  This means that it seems to be significantly cheaper to purchase a property that has not been renovated and purchase materials to customize it.
 
+Not Renovated
+
 ![newplot](/Images/newplot.png)
+
+Renovated
 
 ![newplot(1)](/Images/newplot(1).png)
 
@@ -45,7 +49,11 @@ Investigating popular neighborhoods surrounding the already renovated areas to t
 Heat maps were createed based on zip code with both the Renovated and Non Renovated data frames.
 We were able to see trending areas that had not been renovated yet but were surrounding renovated areas.  
 
+Not Renovated
+
 ![Not Renovated](/Images/Not Renovated.png)
+
+Renovated
 
 ![Renovated](/Images/Renovated.png)
 
