@@ -73,7 +73,7 @@ Several tests were performed to ensure that the model was refined as much as pos
 
 Tests include:
 
-Variance of error
+Variance inflation factor
 Breusch Pagan
 QQ plot
 Test and Train
