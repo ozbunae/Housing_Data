@@ -1,66 +1,91 @@
 # Phase 2 Project
 
-Another module down--you're almost half way there!
+## Project Description
 
-![awesome](https://raw.githubusercontent.com/learn-co-curriculum/dsc-phase-2-project-campus/master/halfway-there.gif)
+Dave and Brenda are a young couple with hefty financial backing looking to purchase several properties and provide the manual labor to flip them into suitable Airbnb rentals.  They are unsure of where to buy, if it is even worth it to spend the time flipping a house, and what size house would be profitable?
+For this project I used housing data from King County Washington combined with data from the Airbnb website to help make determinations 
 
-All that remains in Phase 2 is to put our newfound data science skills to use with a large project! This project should take 20 to 30 hours to complete.
+### 1.1 The Data
 
-## Project Overview
+This project uses the King County House Sales dataset, which can be found in  `kc_house_data.csv` in the data folder in this repo. The description of the column names can be found in `column_names.md` in the same folder. 
 
-For this project, you will use regression modeling to analyze house sales in a northwestern county.
+This project also utilized data that was parsed fromt the Airbnb website to Kaggle.  This information told us things like ratings, rental types, average nightly, monthly, and weekly cost, ext.  Although it weakened our model when we put it in it gave us a good idea of what the parameters were for the house type we were looking for.
 
-### The Data
+### 1.2 Data Cleaning
 
-This project uses the King County House Sales dataset, which can be found in  `kc_house_data.csv` in the data folder in this repo. The description of the column names can be found in `column_names.md` in the same folder. As with most real world data sets, the column names are not perfectly described, so you'll have to do some research or use your best judgment if you have questions about what the data means.
+As with all data we spent a lot of time cleaning the data.   The data really needed to be investigated by renovated v. non renovated.  The problem with this is that it divided up the data in a way that once it was cleaned created two very weak models.  Some useful information was retrieved from both of these scenarios but ultimately, a model with the data from both renovated v. non renovated homes was used.  
 
-It is up to you to decide what data from this dataset to use and how to use it. If you are feeling overwhelmed or behind, we recommend you ignore some or all of the following features:
+Histograms were used as a frequent technique through the cleaning process to see how normally distributed the continuous data was. The categorical data was binned and split into dummies in order to prevent it from messing with the final model.
 
-* date
-* view
-* sqft_above
-* sqft_basement
-* yr_renovated
-* zipcode
-* lat
-* long
-* sqft_living15
-* sqft_lot15
+For the main model with all of the original data, a z score multiplier was used to eliminate outliers.  Because it was such an agressive technique there was no need to go through the data column by column.  In the data sets separated by renovated v. nonrenovated, an interquartile method as well as individual column cleaning was applied in order to keep the smaller data frames in tact. 
 
-### Business Problem
+### 1.3 Business Problem
 
-It is up to you to define a stakeholder and business problem appropriate to this dataset.
+The business problem is two young investors who want to invest in some homes to flip into Airbnbs.  Dave is a contracter and will do all of the work himself in order to elminate some overhead cost.  They want to know three things before they move forward with their descision:
 
-If you are struggling to define a stakeholder, we recommend you complete a project for a real estate agency that helps homeowners buy and/or sell homes. A business problem you could focus on for this stakeholder is the need to provide advice to homeowners about how home renovations might increase the estimated value of their homes, and by what amount.
+1. Is it even worth it to renovate?  Is it possible to just find a home that is already renovated or in better condition to turn into an Airbnb?
+2. If it is worth it, what areas should we be looking at?  Is there an opportunity to purchase a non renovated home next to an area that is already renovated?
+3. What size home should you be buying?
 
-## Deliverables
 
-There are three deliverables for this project:
 
-* A **GitHub repository**
-* A **Jupyter Notebook**
-* A **non-technical presentation**
+## Exploratory Data Analysis
 
-Review the "Project Submission & Review" page in the "Milestones Instructions" topic for instructions on creating and submitting your deliverables. Refer to the rubric associated with this assignment for specifications describing high-quality deliverables.
+Exploratory Data Analysis shows us that 
 
-### Key Points
+### 2.1 Question 1:
+We found that yes, it is definitely worth it to invest in a non renovated home if you are doing the renovations yourself.  
+Investigating popular neighborhoods surrounding the already renovated areas to take advantage of prime real estate.  The mean cost of a grade 6 home from the renovated group of homes is on average $100,000 more than the average cost of a grade 6 non – renovated home.  This means that it seems to be significantly cheaper to purchase a property that has not been renovated and purchase materials to customize it.
 
-* **Your deliverables should explicitly address each step of the data science process.** Refer to [the Data Science Process lesson](https://github.com/learn-co-curriculum/dsc-data-science-processes) from Topic 19 for more information about process models you can use.
+![nonrenovated](/images/newplot.png)
 
-* **Your Jupyter Notebook should demonstrate an iterative approach to modeling.** This means that you begin with a basic model, evaluate it, and then provide justification for and proceed to a new model. After you finish refining your models, you should provide 1-3 paragraphs discussing your final model - this should include interpreting at least 3 important parameter estimates or statistics.
+![renovated](/images/newplot(1).png)
 
-* **Based on the results of your models, your notebook and presentation should discuss at least two features that have strong relationships with housing prices.**
+### 2.2 Question 2:
+Heat maps were createed based on zip code with both the Renovated and Non Renovated data frames.
+We were able to see trending areas that had not been renovated yet but were surrounding renovated areas.  
 
-## Getting Started
+![heatmapnoreno](/images/Not Renovated.png)
 
-Start on this project by forking and cloning [this project repository](https://github.com/learn-co-curriculum/dsc-phase-2-project) to get a local copy of the dataset.
+![heatmapreno](/images/Renovated.png)
 
-We recommend structuring your project repository similar to the structure in [the Phase 1 Project Template](https://github.com/learn-co-curriculum/dsc-project-template). You can do this either by creating a new fork of that repository to work in or by building a new repository from scratch that mimics that structure.
+### 2.3 Question 3:
+Airbnb data was cleaned and filtered using the interquartile method on the monthly price column.  This created a reasonable range of homes of which to work in.  Outliers were removed from other categories and categorical columns were explored.  After doing this, it was determined that it would be suitable to purchase a detached house that was 2-6 bedrooms and 1 -3 bathrooms.  All of the homes in this data set also had a score of 92/100 or higher in the review ratings column.  
 
-## Project Submission and Review
+## Regression Modeling
 
-Review the "Project Submission & Review" page in the "Milestones Instructions" topic to learn how to submit your project and how it will be reviewed. Your project must pass review for you to progress to the next Phase.
+### 3.1 Problems
+A model was built out using soley the KC data set.  Separating out the data into renovated and non renovated data and then building 2 seperate models resulted in an exceptionally low R2 and high p values. Adding in the Airbnb data set to the KC data set resulted in the same problem
+
+### 3.2 Solution
+A final regression model was built using only the KC data set.  The time of year and a few other variables were dropped from the beginning.  As an agressive approach to outliers, the z score method was used in the coding.  This took out the yr_renovated variable, but plenty of further analysis was done on this column.  After outliers removed, the data was listed by categorical and continuous variables.  Histograms were used to check for a normal distribution in continuous columns.  Bins were created for 3 of the categorical columns and then all categorical columns were ran with dummy variables.  
+
+### 3.3 Checks and Balances
+Several tests were performed to ensure that the model was refined as much as possible.
+
+Tests include:
+
+Variance of error
+Breusch Pagan
+QQ plot
+Test and Train
+Dropping one column from each set of dummies to keep our model in check
+
+## Further Work
+
+Exploring the Airbnb data even more and looking into world-wide trends with Airbnb data and not just King county.
+
+Building a new model that takes into consideration the world-wide Airbnb trends.
+
+Investigating specific zip codes that could ensure a high ROI.  And building new data sets that are customized to those zip codes.  I.e. what areas are trending both on the housing market as well as the Airbnb market. 
+
+Examining the cost of materials to ensure that even with free labor there would still be a high ROI.
+
 
 ## Summary
 
-This project will give you a valuable opportunity to develop your data science skills using real-world data. The end-of-phase projects are a critical part of the program because they give you a chance to bring together all the skills you've learned, apply them to realistic projects for a business stakeholder, practice communication skills, and get feedback to help you improve. You've got this!
+Seeing that this young couple would like to do all of the renovations themselves,  it would definitely be worth it to purchase non renovated homes and flip them into custom Airbnbs.
+
+You should purchase a home in the 'red' zone zip codes that are neighboring the currently renovated areas.
+
+The home should be between 2 and 6 bedrooms 1 and 3 bathrooms and it should be a detached home.
