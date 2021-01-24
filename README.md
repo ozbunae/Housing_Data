@@ -39,11 +39,11 @@ Investigating popular neighborhoods surrounding the already renovated areas to t
 
 Not Renovated
 
-![newplot](/Images/newplot.png)
+!.[newplot](/Images/newplot.png)
 
 Renovated
 
-![newplot(1)](/Images/newplot(1).png)
+!.[newplot(1)](/Images/newplot(1).png)
 
 ### 2.2 Question 2:
 Heat maps were createed based on zip code with both the Renovated and Non Renovated data frames.
@@ -51,11 +51,11 @@ We were able to see trending areas that had not been renovated yet but were surr
 
 Not Renovated
 
-![Not Renovated](/Images/Not Renovated.png)
+!.[Not Renovated](/Images/Not Renovated.png)
 
 Renovated
 
-![Renovated](/Images/Renovated.png)
+!.[Renovated](/Images/Renovated.png)
 
 ### 2.3 Question 3:
 Airbnb data was cleaned and filtered using the interquartile method on the monthly price column.  This created a reasonable range of homes of which to work in.  Outliers were removed from other categories and categorical columns were explored.  After doing this, it was determined that it would be suitable to purchase a detached house that was 2-6 bedrooms and 1 -3 bathrooms.  All of the homes in this data set also had a score of 92/100 or higher in the review ratings column.  
@@ -78,6 +78,10 @@ Breusch Pagan
 QQ plot
 Test and Train
 Dropping one column from each set of dummies to keep our model in check
+
+!.[Histogram](/Images/Screen Shot 2021-01-24 at 3.45.02 PM.png)
+
+!.[Scatterplot](/Images/Screen Shot 2021-01-24 at 3.45.14 PM.png)
 
 ## Further Work
 
