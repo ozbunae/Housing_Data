@@ -20,12 +20,6 @@ For the main model with all of the original data, a z score multiplier was used 
 
 ### 1.3 Business Problem
 
-The business problem is two young investors who want to invest in some homes to flip into Airbnbs.  Dave is a contracter and will do all of the work himself in order to elminate some overhead cost.  They want to know three things before they move forward with their descision:
-
-1. Is it even worth it to renovate?  Is it possible to just find a home that is already renovated or in better condition to turn into an Airbnb?
-2. If it is worth it, what areas should we be looking at?  Is there an opportunity to purchase a non renovated home next to an area that is already renovated?
-3. What size home should you be buying?
-
 
 
 ## Exploratory Data Analysis
@@ -33,7 +27,7 @@ The business problem is two young investors who want to invest in some homes to 
 Exploratory Data Analysis was used to come up with some inital visualizations and answer preliminary questions in the process.
 
 ### 2.1 Question 1:
-We found that yes, it is definitely worth it to invest in a non renovated home if you are doing the renovations yourself.  
+Yes, it is definitely worth it to invest in a non renovated home if you are doing the renovations yourself.  
 Investigating popular neighborhoods surrounding the already renovated areas to take advantage of prime real estate.  The mean cost of a grade 6 home from the renovated group of homes is on average $100,000 more than the average cost of a grade 6 non – renovated home.  This means that it seems to be significantly cheaper to purchase a property that has not been renovated and purchase materials to customize it.
 
 Not Renovated
@@ -48,8 +42,22 @@ Renovated
 Condition v. Grade of a Home.  This was a case where the question arose out of a graph that was created.
 ![condvgrade](/Images/pic1.png)
 
+Looking at this, the grade of the home does not match the condition of the home by year:
+
+"The tricky part is when style and tastes change over decades. A comparable with the typical décor from 1980 with the cream laminate cabinets with wood trim, which were in style at the time, is considered to be average construction quality. Based on today’s trends, these cabinets look very dated. They may still be in very good condition, but they are average quality(in our case grade). The quality(grade) rating doesn’t change over time. In contrast, condition may erode over time if not maintained." [1]
+
+Lower grade or quality or a home in the 2000s can be accounted for the by the "McMansion boom".  The concept of creating slap together houses that are excessive in size and fit the trendiness of the time.  The amount of pre-1960s homes that have are in top condition but are considered out dated are very high.  
+
 ### 2.3 Question 3:
 How do neighborhoods effect price.
+
+Looking below, the visualizations speak for themselves.  The excerpts from teh heat map in this project show the neighborhoods Renton and Bellvue and they match on the heat map what the box plots are telling us about the price of a home in those areas.
+
+![hoodbarplt1](/Images/pic4.png)
+
+![hoodbarplt2](/Images/pic2.png)
+
+![hoodbarplt3](/Images/pic3.png)
 
 ## Regression Modeling
 
@@ -71,11 +79,14 @@ Test and Train
 Dropping one column from each set of dummies to keep our model in check
 Doing a log transformation on Price
 
-![Histogram](/Images/Screen Shot 2021-01-24 at 3.45.02 PM.png)
+![QQPlot](/Images/pic5.png)
 
-![Scatterplot](/Images/Screen Shot 2021-01-24 at 3.45.14 PM.png)
+![Histogram](/Images/pic6.png)
+
+This histogram was created after the log function was applied to the price category in an effort to normalize the distribution.  We can see it did a pretty good job but still has a bit of a left skew.
 
 ## Further Work
+
 
 
 
