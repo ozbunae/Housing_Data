@@ -1,9 +1,8 @@
 # Phase 2 Project
 
 ## Project Description
-
-Dave and Brenda are a young couple with hefty financial backing looking to purchase several properties and provide the manual labor to flip them into suitable Airbnb rentals.  They are unsure of where to buy, if it is even worth it to spend the time flipping a house, and what size house would be profitable?
-For this project I used housing data from King County Washington combined with data from the Airbnb website to help make determinations 
+For this project I used housing data from King County Washington which is the Seattle area. 
+Moving on from basic EDA, this project centers around using linear regression and ordinary least squares methods to predict the price of housing data.  
 
 ### 1.1 The Data
 
@@ -31,7 +30,7 @@ The business problem is two young investors who want to invest in some homes to 
 
 ## Exploratory Data Analysis
 
-Exploratory Data Analysis shows us that 
+Exploratory Data Analysis was used to come up with some inital visualizations and answer preliminary questions in the process.
 
 ### 2.1 Question 1:
 We found that yes, it is definitely worth it to invest in a non renovated home if you are doing the renovations yourself.  
@@ -46,27 +45,19 @@ Renovated
 ![newplot(1)](/Images/newplot(1).png)
 
 ### 2.2 Question 2:
-Heat maps were createed based on zip code with both the Renovated and Non Renovated data frames.
-We were able to see trending areas that had not been renovated yet but were surrounding renovated areas.  
-
-Not Renovated
-
-![Not Renovated](/Images/Not Renovated.png)
-
-Renovated
-
-![Renovated](/Images/Renovated.png)
+Condition v. Grade of a Home.  This was a case where the question arose out of a graph that was created.
+![condvgrade](/Images/pic1.png)
 
 ### 2.3 Question 3:
-Airbnb data was cleaned and filtered using the interquartile method on the monthly price column.  This created a reasonable range of homes of which to work in.  Outliers were removed from other categories and categorical columns were explored.  After doing this, it was determined that it would be suitable to purchase a detached house that was 2-6 bedrooms and 1 -3 bathrooms.  All of the homes in this data set also had a score of 92/100 or higher in the review ratings column.  
+How do neighborhoods effect price.
 
 ## Regression Modeling
 
 ### 3.1 Problems
-A model was built out using soley the KC data set.  Separating out the data into renovated and non renovated data and then building 2 seperate models resulted in an exceptionally low R2 and high p values. Adding in the Airbnb data set to the KC data set resulted in the same problem
+A model was built out using soley the KC data set.  Separating out the data into renovated and non renovated data and then building 2 seperate models resulted in an exceptionally low R2 and high p values. Adding in the Airbnb data set to the KC data set resulted in the same problem.
 
 ### 3.2 Solution
-A final regression model was built using only the KC data set.  The time of year and a few other variables were dropped from the beginning.  As an agressive approach to outliers, the z score method was used in the coding.  This took out the yr_renovated variable, but plenty of further analysis was done on this column.  After outliers removed, the data was listed by categorical and continuous variables.  Histograms were used to check for a normal distribution in continuous columns.  Bins were created for 3 of the categorical columns and then all categorical columns were ran with dummy variables.  
+A final regression model was built using only the KC data set.  As an agressive approach to outliers, the z score method was used in the coding, this did knock our yr_renovated feature and the waterfront feature.  More analysis is done on renovated v. non renovated homes in two separate jupyter notebooks.  After outliers removed, the data was listed by categorical and continuous variables.  Histograms were used to check for a normal distribution in continuous columns.  Bins were created for 3 of the categorical columns and then all categorical columns were ran with dummy variables.  
 
 ### 3.3 Checks and Balances
 Multiple methods were used to check assumptions. 
@@ -86,19 +77,7 @@ Doing a log transformation on Price
 
 ## Further Work
 
-Exploring the Airbnb data even more and looking into world-wide trends with Airbnb data and not just King county.
-
-Building a new model that takes into consideration the world-wide Airbnb trends.
-
-Investigating specific zip codes that could ensure a high ROI.  And building new data sets that are customized to those zip codes.  I.e. what areas are trending both on the housing market as well as the Airbnb market. 
-
-Examining the cost of materials to ensure that even with free labor there would still be a high ROI.
 
 
 ## Summary
 
-Seeing that this young couple would like to do all of the renovations themselves,  it would definitely be worth it to purchase non renovated homes and flip them into custom Airbnbs.
-
-You should purchase a home in the 'red' zone zip codes that are neighboring the currently renovated areas.
-
-The home should be between 2 and 6 bedrooms 1 and 3 bathrooms and it should be a detached home.
