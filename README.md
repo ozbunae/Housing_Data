@@ -1,8 +1,8 @@
-# Phase 2 Project
+# Housing Data Project
 
 ## Project Description
 For this project I used housing data from King County Washington which is the Seattle area. 
-Moving on from basic EDA, this project centers around using linear regression and ordinary least squares methods to predict the price of housing data.  
+Moving on from basic EDA, this project centers around using linear regression and ordinary least squares methods to predict the price of housing data and find out what features have a large effect on the price of a home in this area.
 
 ### 1.1 The Data
 
@@ -17,9 +17,6 @@ As with all data we spent a lot of time cleaning the data.   The data really nee
 Histograms were used as a frequent technique through the cleaning process to see how normally distributed the continuous data was. The categorical data was binned and split into dummies in order to prevent it from messing with the final model.
 
 For the main model with all of the original data, a z score multiplier was used to eliminate outliers.  Because it was such an agressive technique there was no need to go through the data column by column.  In the data sets separated by renovated v. nonrenovated, an interquartile method as well as individual column cleaning was applied in order to keep the smaller data frames in tact. 
-
-### 1.3 Business Problem
-
 
 
 ## Exploratory Data Analysis
@@ -51,7 +48,7 @@ Lower grade or quality or a home in the 2000s can be accounted for the by the "M
 ### 2.3 Question 3:
 How do neighborhoods effect price.
 
-Looking below, the visualizations speak for themselves.  The excerpts from teh heat map in this project show the neighborhoods Renton and Bellvue and they match on the heat map what the box plots are telling us about the price of a home in those areas.
+Looking below, the visualizations speak for themselves.  The excerpts from the heat map in this project show the neighborhoods Renton and Bellevue and they match on the heat map what the box plots are telling us about the price of a home in those areas.
 
 ![hoodbarplt1](/Images/pic4.png)
 
@@ -81,14 +78,24 @@ Doing a log transformation on Price
 
 ![QQPlot](/Images/pic5.png)
 
+This QQplot shows us the residuals v the predicted.  It should hug the line a little bit more.  
+
 ![Histogram](/Images/pic6.png)
 
 This histogram was created after the log function was applied to the price category in an effort to normalize the distribution.  We can see it did a pretty good job but still has a bit of a left skew.
 
 ## Further Work
 
+Taking a further look into Renovated v. Non Renovated homes.  Unfortunately there was severe class imbalance on these records and it eleminated this feature from the project.  More data acquisition could be done on this feature combined with a bootstrapping technique of some sort.
 
+Creating an analysis of features by neighborhood could offer insight into which specific neighborhoods would be best to invest in.
+
+Machine Learning models can be implemented in the future for more precise predictions on what will effect the cost of a home. 
 
 
 ## Summary
+
+Looking into non renovated v. renovated homes and what areas to purchase them in using machine learning would be a generalized next step.
+As with any project, more data acquisition can always be done.  The more data that we have for some of the under represented features will allow us to make better and more accurate predictions.  
+
 
